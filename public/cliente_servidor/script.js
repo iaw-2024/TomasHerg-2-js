@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Realizar una solicitud GET al servidor Express para obtener el JSON 'datos'
-    fetch("http://localhost:3001") // Cambia 'localhost:3001' si es necesario
+    fetch("http://localhost:3001/cliente_servidor/json_datos") 
         .then(response => {
             // Verificar si la solicitud fue exitosa
             if (!response.ok) {
@@ -10,10 +10,13 @@ document.addEventListener("DOMContentLoaded", function() {
             return response.json();
         })
         .then(datos => {
-            // Aquí puedes manipular los datos recibidos, como actualizar la lista en la página web
-            console.log("Datos recibidos:", datos);
-            // Por ejemplo, aquí podrías actualizar la lista en la página con los datos recibidos
-            // Por ahora, simplemente imprimo los datos en la consola
+            var lista = document.getElementById("lista");
+            datos.forEach(element => {
+                var nuevoLI = document.createElement("li");
+                nuevoLI.innerHTML = element.nombre;
+                nuevoLI.classList.add("list-group-item", "list-group-item-primary");
+                lista.appendChild(nuevoLI);
+            });
         })
         .catch(error => {
             console.error("Error al solicitar los datos:", error);
