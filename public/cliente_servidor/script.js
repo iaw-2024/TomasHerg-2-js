@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Realizar una solicitud GET al servidor Express para obtener el JSON 'datos'
-    fetch("https://tomas-herg-2-3s87gt6zh-tomas-hs-projects.vercel.app/cliente_servidor/json_datos") 
+    fetch("http://localhost:3001/cliente_servidor/json_datos") 
         .then(response => {
             // Verificar si la solicitud fue exitosa
             if (!response.ok) {
