@@ -48,7 +48,7 @@ app.get("/express", (req, res) => {
 
 app.get("/cliente_servidor", (req, res) => {res.send("cliente_servidor on Vercel!");})
 
-app.get("/cliente_servidor/json_datos", (req, res) => {res.send(datos);})
+app.get("/json_datos", (req, res) => {res.send(datos);})
 
 
 module.exports = app;
